@@ -1,0 +1,6 @@
+# OS X Files
+.DS_Store
+
+# Folders
+/bin
+/pkg

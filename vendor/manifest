@@ -1,0 +1,43 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/chzyer/readline/runes",
+			"repository": "https://github.com/chzyer/readline",
+			"revision": "14e9df7f3c68bca64f111bab38196975d4696e2f",
+			"branch": "master",
+			"path": "/runes"
+		},
+		{
+			"importpath": "github.com/robertkrimen/otto",
+			"repository": "https://github.com/robertkrimen/otto",
+			"revision": "53221230c215611a90762720c9042ac782ef74ee",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/thoj/go-ircevent",
+			"repository": "https://github.com/thoj/go-ircevent",
+			"revision": "da78ed515c0f0833e7a92c7cc52898176198e2c1",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/yuin/gopher-lua",
+			"repository": "https://github.com/yuin/gopher-lua",
+			"revision": "e5faab4db06a81efb60d8e16c1d205e1d93736a9",
+			"branch": "master"
+		},
+		{
+			"importpath": "golang.org/x/crypto/ssh/terminal",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "5dc8cb4b8a8eb076cbb5a06bc3b8682c15bdbbd3",
+			"branch": "master",
+			"path": "/ssh/terminal"
+		},
+		{
+			"importpath": "gopkg.in/readline.v1",
+			"repository": "https://gopkg.in/readline.v1",
+			"revision": "14e9df7f3c68bca64f111bab38196975d4696e2f",
+			"branch": "master"
+		}
+	]
+}
