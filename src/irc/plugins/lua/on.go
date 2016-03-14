@@ -18,8 +18,15 @@ func (p *LuaPlugin) on(state *Lua.LState) int {
 
 	p.cb.event = event
 	p.cb.id = p.c.Conn.AddCallback(event, func(event *irc.Event) {
-		// Only proceed if the channel is correct
-		if p.c.Name == event.Arguments[0] {
+		// Check to see if the event is occuring in a channel or not
+		ch := strings.HasPrefix(event.Arguments[0], "#")
+		if !ch {
+			// If the event is not in a channel, we'll want to set the "channel"
+			// to the buffer that sent the message.
+			event.Arguments[0] = event.Nick
+		}
+
+		if p.c.Name == event.Arguments[0] || !ch {
 			table := new(Lua.LTable)
 			table.RawSetString("message", Lua.LString(event.Message()))
 			table.RawSetString("channel", Lua.LString(event.Arguments[0]))

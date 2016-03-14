@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/robertkrimen/otto"
 	"github.com/thoj/go-ircevent"
+	"strings"
 )
 
 // The on function in Javascript should be called as follows:
@@ -19,8 +20,15 @@ func (p *JavascriptPlugin) on(call otto.FunctionCall) otto.Value {
 
 	p.cb.event = event
 	p.cb.id = p.c.Conn.AddCallback(event, func(event *irc.Event) {
-		// Only proceed if the channel is correct
-		if p.c.Name == event.Arguments[0] {
+		// Check to see if the event is occuring in a channel or not
+		ch := strings.HasPrefix(event.Arguments[0], "#")
+		if !ch {
+			// If the event is not in a channel, we'll want to set the "channel"
+			// to the buffer that sent the message.
+			event.Arguments[0] = event.Nick
+		}
+
+		if p.c.Name == event.Arguments[0] || !ch {
 			e, _ := json.Marshal(struct {
 				Message string `json:"message"`
 				Channel string `json:"channel"`

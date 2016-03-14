@@ -6,6 +6,7 @@ import (
 	"irc/channel"
 	"irc/plugins"
 	"log"
+	"strings"
 )
 
 const (
