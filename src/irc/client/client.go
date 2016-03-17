@@ -6,6 +6,7 @@ import (
 	"github.com/thoj/go-ircevent"
 	"irc/channel"
 	"irc/server"
+	"storage"
 	"log"
 	"time"
 )
@@ -15,6 +16,7 @@ type Client struct {
 	User        string
 	QuitMessage string
 	Server      *server.Server
+	Storage     *storage.Storage
 
 	channels map[string]*channel.Channel
 	conn     *irc.Connection
@@ -55,6 +57,7 @@ func (c *Client) Join(ch, pass string) error {
 		Name:     ch,
 		Password: pass,
 		Conn:     c.conn,
+		Storage:  c.Storage,
 	}
 
 	return nil

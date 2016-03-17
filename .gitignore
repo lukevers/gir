@@ -4,3 +4,6 @@
 # Folders
 /bin
 /pkg
+
+# Databases
+*.db

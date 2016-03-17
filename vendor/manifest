@@ -2,6 +2,12 @@
 	"version": 0,
 	"dependencies": [
 		{
+			"importpath": "github.com/boltdb/bolt",
+			"repository": "https://github.com/boltdb/bolt",
+			"revision": "0fd4c0547d204c7b1cad6db6f3adad5f2cf453e5",
+			"branch": "master"
+		},
+		{
 			"importpath": "github.com/chzyer/readline/runes",
 			"repository": "https://github.com/chzyer/readline",
 			"revision": "14e9df7f3c68bca64f111bab38196975d4696e2f",

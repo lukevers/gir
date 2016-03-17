@@ -5,14 +5,20 @@ import (
 	"irc/client"
 	"irc/server"
 	"log"
+	"storage"
 	"time"
 )
 
 func main() {
+	// Setup storage
+	store, _ := storage.New("gir.db")
+
+	// Setup bot
 	bot := client.New(client.Client{
 		Nick:        "gir",
 		User:        "gir",
 		QuitMessage: "gir",
+		Storage:     store,
 		Server: &server.Server{
 			Host: "localhost",
 			Port: 6667,

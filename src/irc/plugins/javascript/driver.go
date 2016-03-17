@@ -55,4 +55,10 @@ func Unregister(c *channel.Channel) {
 func (p *JavascriptPlugin) setupAPI() {
 	p.o.Set("on", p.on)
 	p.o.Set("say", p.say)
+
+	storage, _ := p.o.Object(`storage = {}`)
+	storage.Set("use", p.storageUse)
+	storage.Set("put", p.storagePut)
+	storage.Set("get", p.storageGet)
+	storage.Set("remove", p.storageRemove)
 }

@@ -6,7 +6,6 @@ import (
 	"irc/channel"
 	"irc/plugins"
 	"log"
-	"strings"
 )
 
 const (
@@ -55,4 +54,11 @@ func Unregister(c *channel.Channel) {
 func (p *LuaPlugin) setupAPI() {
 	p.l.SetGlobal("on", p.l.NewFunction(p.on))
 	p.l.SetGlobal("say", p.l.NewFunction(p.say))
+
+	storage := new(Lua.LTable)
+	storage.RawSet(Lua.LString("use"), p.l.NewFunction(p.storageUse))
+	storage.RawSet(Lua.LString("put"), p.l.NewFunction(p.storagePut))
+	storage.RawSet(Lua.LString("get"), p.l.NewFunction(p.storageGet))
+	storage.RawSet(Lua.LString("remove"), p.l.NewFunction(p.storageRemove))
+	p.l.SetGlobal("storage", storage)
 }

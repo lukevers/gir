@@ -5,6 +5,7 @@ import (
 	"github.com/thoj/go-ircevent"
 	Lua "github.com/yuin/gopher-lua"
 	"log"
+	"strings"
 )
 
 // The on function in Lua should be called as follows:

@@ -4,6 +4,7 @@ package channel
 import (
 	"github.com/thoj/go-ircevent"
 	"irc/plugins"
+	"storage"
 )
 
 type Channel struct {
@@ -11,4 +12,5 @@ type Channel struct {
 	Name     string
 	Password string
 	Plugins  map[string]map[string]plugins.Plugin
+	Storage  *storage.Storage
 }
